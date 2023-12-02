@@ -10,9 +10,25 @@ require("mason-lspconfig").setup(
 {
 	ensure_installed =
 	{
+		"bashls",
+		--
+		"jsonls",
+		--
+		"biome",
+		--
 		"lua_ls",
+		--
 		"cmake",
+		--
 		"rust_analyzer",
+		--
+		"pyre",
+		"pyright",
+		"pylyzer",
+		"sourcery",
+		"ruff_lsp",
+		"jedi_language_server",
+		"pylsp",
 	}
 })
 
@@ -25,3 +41,8 @@ require("lspconfig").lua_ls.setup
 require("lspconfig").clangd.setup {}
 require("lspconfig").cmake.setup {}
 require("lspconfig").rust_analyzer.setup {}
+require("lspconfig").biome.setup {}
+require("lspconfig").jsonls.setup {}
+require("lspconfig").pyright.setup {}
+require("lspconfig").bashls.setup {}
+--require("lspconfig").pyre.setup {}
