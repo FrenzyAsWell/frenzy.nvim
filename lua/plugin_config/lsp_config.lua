@@ -6,6 +6,7 @@ require("mason").setup({
 		"clangd",
 	}
 })
+--[[
 require("mason-lspconfig").setup(
 {
 	ensure_installed =
@@ -46,3 +47,4 @@ require("lspconfig").jsonls.setup {}
 require("lspconfig").pyright.setup {}
 require("lspconfig").bashls.setup {}
 --require("lspconfig").pyre.setup {}
+--]]

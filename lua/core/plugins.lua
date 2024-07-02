@@ -28,7 +28,7 @@ require("lazy").setup({
 
 	-- ### --
 
-	-- --[[
+
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies =
@@ -39,8 +39,7 @@ require("lazy").setup({
 			require("plugin_config.nvim-tree")
 		end,
 	},
-	-- ]]
-	-- --[[
+
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
@@ -50,8 +49,7 @@ require("lazy").setup({
 			require("plugin_config.lualine")
 		end,
 	},
-	-- ]]
-	-- --[[
+
 	{
 		"hrsh7th/cmp-nvim-lsp",
 		dependencies =
@@ -70,8 +68,7 @@ require("lazy").setup({
 			require("plugin_config.nvim-cmp")
 		end,
 	},
-	-- ]]
-	-- --[[
+
   	{
 		"williamboman/mason.nvim",
 
@@ -91,7 +88,14 @@ require("lazy").setup({
 				dependencies =
 				{
 					"jay-babu/mason-nvim-dap.nvim",
-					"rcarriga/nvim-dap-ui",
+						{
+							"rcarriga/nvim-dap-ui",
+							dependencies = 
+							{
+								"nvim-neotest/nvim-nio"
+							},
+						},
+					
 				},
 				opts =
 				{
@@ -107,5 +111,4 @@ require("lazy").setup({
 			},
 		},
 	},
-	-- ]]
 })
