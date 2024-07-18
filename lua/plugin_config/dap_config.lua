@@ -4,9 +4,9 @@ local dap = require("dap")
 local dapui = require("dapui")
 
 dap.adapters.lldb = {
-  type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-  name = 'lldb'
+	type = 'executable',
+ 	command = '/nix/store/xrql159siqj3j68vhmsv6g2c2r4wsmps-lldb-17.0.6/bin/lldb-vscode',
+	name = 'lldb'
 }
 
 dap.configurations.cpp =
@@ -20,9 +20,7 @@ dap.configurations.cpp =
     end,
     cwd = '${workspaceFolder}',
 	stopOnEntry = false,
-	runInTerminal = true,
-	showDisassembly = "never",
-    args = {},
+    args = {"mpv"},
   },
 }
 
@@ -31,18 +29,25 @@ dap.configurations.cpp =
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
 end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
 end
 
-vim.keymap.set('n', '<F5>', require 'dap'.continue)
-vim.keymap.set('n', '<F10>', require 'dap'.step_over)
-vim.keymap.set('n', '<F11>', require 'dap'.step_into)
-vim.keymap.set('n', '<F12>', require 'dap'.step_out)
-vim.keymap.set('n', 'j', require 'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set('n', 'm', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)

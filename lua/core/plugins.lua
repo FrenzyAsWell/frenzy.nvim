@@ -15,8 +15,8 @@ require("lazy").setup({
   	"jiangmiao/auto-pairs",
 	"preservim/nerdtree",
   	"preservim/tagbar",
-  	"junegunn/fzf",
   	"junegunn/fzf.vim",
+  	"junegunn/fzf",
 
 	-- ### --
 
@@ -28,7 +28,10 @@ require("lazy").setup({
 
 	-- ### --
 
-
+	{
+		"RRethy/vim-hexokinase", 
+		build = "make hexokinase",
+	},
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies =
@@ -96,14 +99,6 @@ require("lazy").setup({
 							},
 						},
 					
-				},
-				opts =
-				{
-					handlers = {},
-					ensure_installed =
-					{
-						"codelldb",
-					},
 				},
 				config = function()
 					require("plugin_config.dap_config")
