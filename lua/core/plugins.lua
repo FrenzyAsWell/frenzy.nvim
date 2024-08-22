@@ -1,20 +1,17 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+	vim.fn.system({
+    	"git",
+    	"clone",
+    	"--filter=blob:none",
+    	"https://github.com/folke/lazy.nvim.git",
+    	"--branch=stable", -- latest stable release
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  	"jiangmiao/auto-pairs",
-	"preservim/nerdtree",
-  	"preservim/tagbar",
   	"junegunn/fzf.vim",
   	"junegunn/fzf",
 
@@ -27,11 +24,33 @@ require("lazy").setup({
 	"folke/tokyonight.nvim",
 
 	-- ### --
+	{
+	    'windwp/nvim-autopairs',
+    	event = "InsertEnter",
+    	config = true
+	},
 
 	{
-		"RRethy/vim-hexokinase", 
+		"hedyhli/outline.nvim",
+		config = function()
+			require("outline").setup {
+
+    		}
+		end,
+	},
+
+	{
+		"RRethy/vim-hexokinase",
 		build = "make hexokinase",
 	},
+
+	{
+		'stevearc/oil.nvim',
+		config = function()
+			require("plugin_config.oil")
+		end,
+	},
+
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies =
@@ -45,11 +64,39 @@ require("lazy").setup({
 
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies = {
+		dependencies =
+		{
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			require("plugin_config.lualine")
+		end,
+	},
+
+	{
+		"nvimtools/none-ls.nvim",
+		event = "VeryLazy",
+
+		dependencies =
+		{
+			'nvim-lua/plenary.nvim'
+		},
+		config = function ()
+			require "plugin_config.null_ls"
+		end
+	},
+
+	{
+		'romgrk/barbar.nvim',
+		dependencies =
+		{
+			'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+			'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    	},
+    	init = function()
+			vim.g.barbar_auto_setup = false end,
+		config = function()
+			require("plugin_config.barbar")
 		end,
 	},
 
@@ -93,12 +140,11 @@ require("lazy").setup({
 					"jay-babu/mason-nvim-dap.nvim",
 						{
 							"rcarriga/nvim-dap-ui",
-							dependencies = 
+							dependencies =
 							{
 								"nvim-neotest/nvim-nio"
 							},
 						},
-					
 				},
 				config = function()
 					require("plugin_config.dap_config")

@@ -1,35 +1,33 @@
-require("mason").setup({
-	opts =
-	{
-		"codelldb",
-		"clangd-format",
-		"clangd",
-	}
-})
+require("mason").setup()
 
 require("mason-lspconfig").setup(
 {
-	ensure_installed =
-	{
-		"bashls",
+	opts = {
+		ensure_installed =
+		{
+			"codelldb",
+			"clang-format",
+			"clangd",
+			"bashls",
 		--
-		"jsonls",
+			"jsonls",
 		--
-		"biome",
+			"biome",
 		--
-		"lua_ls",
+			"lua_ls",
 		--
-		"cmake",
+			"cmake",
 		--
-		"rust_analyzer",
+			"rust_analyzer",
 		--
-		"pyre",
-		"pyright",
-		"pylyzer",
-		"sourcery",
-		"ruff_lsp",
-		"jedi_language_server",
-		"pylsp",
+			"pyre",
+			"pyright",
+			"pylyzer",
+			"sourcery",
+			"ruff_lsp",
+			"jedi_language_server",
+			"pylsp",
+		}
 	}
 })
 
@@ -58,12 +56,12 @@ local custom_attach = function(client)
 	map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 end
 
--- require("lspconfig").lua_ls.setup {	capabilities = capabilities,	}
-require("lspconfig").clangd.setup {}
-require("lspconfig").cmake.setup {}
-require("lspconfig").rust_analyzer.setup {}
-require("lspconfig").biome.setup {}
-require("lspconfig").jsonls.setup {}
-require("lspconfig").pyright.setup {}
-require("lspconfig").bashls.setup {}
+require("lspconfig").lua_ls.setup {	capabilities = capabilities, }
+require("lspconfig").clangd.setup { capabilities = capabilities, }
+require("lspconfig").cmake.setup { capabilities = capabilities, }
+require("lspconfig").rust_analyzer.setup { capabilities = capabilities, }
+require("lspconfig").biome.setup { capabilities = capabilities, }
+require("lspconfig").jsonls.setup { capabilities = capabilities, }
+require("lspconfig").pyright.setup { capabilities = capabilities, }
+require("lspconfig").bashls.setup { capabilities = capabilities, }
 

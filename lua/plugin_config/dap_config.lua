@@ -5,7 +5,7 @@ local dapui = require("dapui")
 
 dap.adapters.lldb = {
 	type = 'executable',
- 	command = '/nix/store/xrql159siqj3j68vhmsv6g2c2r4wsmps-lldb-17.0.6/bin/lldb-vscode',
+ 	command = '/nix/store/plfihq0yx4fi6jppg90m607picjps7d0-lldb-18.1.8/bin/lldb-dap',
 	name = 'lldb'
 }
 
@@ -20,7 +20,8 @@ dap.configurations.cpp =
     end,
     cwd = '${workspaceFolder}',
 	stopOnEntry = false,
-    args = {"mpv"},
+	runInTerminal = true,
+    args = {},
   },
 }
 

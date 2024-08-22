@@ -25,4 +25,4 @@ local themes =
 	"tokyonight-moon",
 }
 
-pcall(vim.cmd, "colorscheme " .. themes[6])
+pcall(vim.cmd, "colorscheme " .. themes[1])
