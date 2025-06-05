@@ -1,6 +1,9 @@
 local o = vim.opt
 local og = vim.g
 
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
 og.mapleader = " "
 og.loaded_netrw = 1
 og.loaded_netrwPlugin = 1
@@ -12,21 +15,21 @@ o.number = true
 o.shiftwidth = 4
 o.tabstop = 4
 
-vim.keymap.set('n', '<C-o>', ':Oil<CR>', { noremap = true, silent = true })
+map('n', "<C-o>", ":Oil<CR>", opts)
 --###--
-vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])
-vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]])
-vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]])
+map('n', "=", "[[<cmd>vertical resize +5<cr>]]", opts)
+map('n', "-", "[[<cmd>vertical resize -5<cr>]]", opts)
+map('n', "+", "[[<cmd>horizontal resize +2<cr>]]", opts)
+map('n', "_", "[[<cmd>horizontal resize -2<cr>]]", opts)
 
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
+map('n', "<C-h>", "<C-w>h", opts)
+map('n', "<C-l>", "<C-w>l", opts)
+map('n', "<C-j>", "<C-w>j", opts)
+map('n', "<C-k>", "<C-w>k", opts)
 
 --- Movement in Insert Mode
 
-vim.keymap.set("i", "<C-h>", "<Left>")
-vim.keymap.set("i", "<C-l>", "<Right>")
-vim.keymap.set("i", "<C-j>", "<Down>")
-vim.keymap.set("i", "<C-k>", "<Up>")
+map('i', "<C-h>", "<Left>", opts)
+map('i', "<C-l>", "<Right>", opts)
+map('i', "<C-j>", "<Down>", opts)
+map('i', "<C-k>", "<Up>", opts)
