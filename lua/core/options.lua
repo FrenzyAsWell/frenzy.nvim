@@ -1,21 +1,26 @@
-local o = vim.opt
-local og = vim.g
-
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-og.mapleader = " "
-og.loaded_netrw = 1
-og.loaded_netrwPlugin = 1
-og.terminal_emulator='tmux'
+vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.terminal_emulator='tmux'
 
-o.relativenumber = true
-o.number = true
+vim.opt.relativenumber = true
+vim.opt.number = true
 
-o.shiftwidth = 4
-o.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
-map('n', "<C-o>", ":Oil<CR>", opts)
+--###--
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.cmd("NvimTreeOpen")
+		vim.cmd("Outline")
+	end,
+})
+
 --###--
 map('n', "=", "[[<cmd>vertical resize +5<cr>]]", opts)
 map('n', "-", "[[<cmd>vertical resize -5<cr>]]", opts)
