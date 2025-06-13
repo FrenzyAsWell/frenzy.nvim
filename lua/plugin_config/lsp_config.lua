@@ -9,6 +9,8 @@ require("mason-lspconfig").setup(
 			"clang-format",
 			"clangd",
 			"bashls",
+		-- 
+			"dockerls",
 		--
 			"jsonls",
 		--
@@ -57,6 +59,7 @@ local custom_attach = function(client)
 end
 
 require("lspconfig").lua_ls.setup {	capabilities = capabilities, }
+require("lspconfig").dockerls.setup { capabilities = capabilities, }
 require("lspconfig").clangd.setup { capabilities = capabilities, }
 require("lspconfig").cmake.setup { capabilities = capabilities, }
 require("lspconfig").rust_analyzer.setup { capabilities = capabilities, }
