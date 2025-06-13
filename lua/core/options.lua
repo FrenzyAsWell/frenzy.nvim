@@ -27,10 +27,10 @@ map('n', "-", "[[<cmd>vertical resize -5<cr>]]", opts)
 map('n', "+", "[[<cmd>horizontal resize +2<cr>]]", opts)
 map('n', "_", "[[<cmd>horizontal resize -2<cr>]]", opts)
 
-map('n', "<C-h>", "<C-w>h", opts)
-map('n', "<C-l>", "<C-w>l", opts)
-map('n', "<C-j>", "<C-w>j", opts)
-map('n', "<C-k>", "<C-w>k", opts)
+map('n', "<C-h>", "<cmd>lua vim.cmd('wincmd h')<cr>", opts)
+map('n', "<C-l>", "<cmd>lua vim.cmd('wincmd l')<cr>", opts)
+map('n', "<C-j>", "<cmd>lua vim.cmd('wincmd j')<cr>", opts)
+map('n', "<C-k>", "<cmd>lua vim.cmd('wincmd k')<cr>", opts)
 
 --- Movement in Insert Mode
 
