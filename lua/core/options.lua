@@ -16,8 +16,8 @@ vim.opt.tabstop = 4
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		vim.cmd("NvimTreeOpen")
-		vim.cmd("Outline")
+		pcall(vim.cmd, "NvimTreeOpen")
+		pcall(vim.cmd, "Outline")
 	end,
 })
 
