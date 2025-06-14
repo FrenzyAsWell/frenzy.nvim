@@ -16,8 +16,14 @@ vim.opt.tabstop = 4
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
+		local iwinMainID = vim.api.nvim_get_current_win()
+
 		pcall(vim.cmd, "NvimTreeOpen")
 		pcall(vim.cmd, "Outline")
+
+		if iwinMainID ~= nil then
+			vim.api.nvim_set_current_win(iwinMainID)
+		end
 	end,
 })
 
