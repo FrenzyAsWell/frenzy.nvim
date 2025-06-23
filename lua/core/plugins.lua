@@ -52,6 +52,7 @@ require("lazy").setup({
 
 		enabled = true,
 		lazy    = false,
+		config  = function() require("plugin_config.markview") end,
 	},
 
 	{
