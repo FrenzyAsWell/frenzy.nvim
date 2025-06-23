@@ -45,6 +45,16 @@ require("lazy").setup({
 	},
 
 	{
+		"iamcco/markdown-preview.nvim",
+		enabled = false,
+
+		cmd     = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft      = { "markdown" },
+		build   = function(plugin)   vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install") end,
+		init    = function() 		 vim.g.mkdp_filetypes = { "markdown" } 									 end,
+	},
+
+	{
 		'stevearc/oil.nvim',
 		config = function()
 			require("plugin_config.oil")
