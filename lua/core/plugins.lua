@@ -45,6 +45,16 @@ require("lazy").setup({
 	},
 
 	{
+		"OXY2DEV/markview.nvim",
+		dependencies = {
+			"saghen/blink.cmp",
+		},
+
+		enabled = true,
+		lazy    = false,
+	},
+
+	{
 		"iamcco/markdown-preview.nvim",
 		enabled = false,
 
