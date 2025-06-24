@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     	"clone",
     	"--filter=blob:none",
     	"https://github.com/folke/lazy.nvim.git",
-    	"--branch=stable", -- latest stable release
+    	"--branch=stable",
     lazypath,
   })
 end
@@ -32,11 +32,7 @@ require("lazy").setup({
 
 	{
 		"hedyhli/outline.nvim",
-		config = function()
-			require("outline").setup {
-
-    		}
-		end,
+		config = function() require("outline") end,
 	},
 
 	{
@@ -51,125 +47,101 @@ require("lazy").setup({
 		},
 
 		enabled = true,
-		lazy    = false,
-		config  = function() require("plugin_config.markview") end,
+		lazy = false,
+		config = function() require("plugin_config.markview") end,
 	},
 
 	{
 		"iamcco/markdown-preview.nvim",
 		enabled = false,
 
-		cmd     = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft      = { "markdown" },
-		build   = function(plugin)   vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install") end,
-		init    = function() 		 vim.g.mkdp_filetypes = { "markdown" } 									 end,
+		ft = { "markdown" },
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = function(plugin) vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install") end,
+		init = function() vim.g.mkdp_filetypes = { "markdown" } end,
 	},
 
 	{
 		'stevearc/oil.nvim',
-		config = function()
-			require("plugin_config.oil")
-		end,
+		config  = function() require("plugin_config.oil") end,
 	},
 
 	{
 		"nvim-tree/nvim-tree.lua",
-		dependencies =
-		{
+		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		config = function()
-			require("plugin_config.nvim-tree")
-		end,
+
+		config  = function() require("plugin_config.nvim-tree") end,
 	},
 
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies =
-		{
+		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		config = function()
-			require("plugin_config.lualine")
-		end,
+
+		config = function() require("plugin_config.lualine") end,
 	},
 
 	{
 		"nvimtools/none-ls.nvim",
-		event = "VeryLazy",
-
-		dependencies =
-		{
+		dependencies = {
 			'nvim-lua/plenary.nvim'
 		},
-		config = function ()
-			require "plugin_config.null_ls"
-		end
+
+		event = "VeryLazy",
+		config = function () require("plugin_config.null_ls") end
 	},
 
 	{
 		'romgrk/barbar.nvim',
-		dependencies =
-		{
-			'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-			'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+		dependencies = {
+			'lewis6991/gitsigns.nvim', -- 	  | OPTIONAL: for git status
+			'nvim-tree/nvim-web-devicons', -- | OPTIONAL: for file icons
     	},
-    	init = function()
-			vim.g.barbar_auto_setup = false end,
-		config = function()
-			require("plugin_config.barbar")
-		end,
+
+    	init = function() vim.g.barbar_auto_setup = false end,
+		config = function() require("plugin_config.barbar") end,
 	},
 
 	{
 		"hrsh7th/cmp-nvim-lsp",
-		dependencies =
-		{
+		dependencies = {
 			"hrsh7th/nvim-cmp",
 			"saadparwaiz1/cmp_luasnip",
 			{
 				"L3MON4D3/LuaSnip",
-				dependencies =
-				{
+				dependencies = {
 					"rafamadriz/friendly-snippets"
 				},
 			},
 		},
-		config = function()
-			require("plugin_config.nvim-cmp")
-		end,
+
+		config = function() require("plugin_config.nvim-cmp") end,
 	},
 
   	{
 		"williamboman/mason.nvim",
-
-		dependencies =
-		{
+		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-
 			{
 				"neovim/nvim-lspconfig",
-				config = function()
-					require("plugin_config.lsp_config")
-				end,
+				config = function()	require("plugin_config.lsp_config") end,
 			},
-
 			{
 				"mfussenegger/nvim-dap",
-				dependencies =
-				{
+				dependencies = {
 					"jay-babu/mason-nvim-dap.nvim",
 						{
 							"rcarriga/nvim-dap-ui",
-							dependencies =
-							{
+							dependencies = {
 								"nvim-neotest/nvim-nio"
 							},
 						},
 				},
-				config = function()
-					require("plugin_config.dap_config")
-				end,
+
+				config = function() require("plugin_config.dap_config") end,
 			},
 		},
 	},
