@@ -22,13 +22,7 @@ require("mason-lspconfig").setup(
 		--
 			"rust_analyzer",
 		--
-			"pyre",
 			"pyright",
-			"pylyzer",
-			"sourcery",
-			"ruff_lsp",
-			"jedi_language_server",
-			"pylsp",
 		}
 	}
 })
