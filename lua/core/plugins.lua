@@ -72,7 +72,9 @@ require("lazy").setup {
 			ft = { "markdown" },
 			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 			build = function(plugin) vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install") end,
-			init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+			opts = {
+				mkdp_filetypes = { "markdown" },
+			},
 		},
 
 		{
