@@ -9,6 +9,9 @@ vim.g.terminal_emulator='tmux'
 vim.opt.relativenumber = true
 vim.opt.number = true
 
+vim.opt.cursorcolumn = false
+vim.opt.cursorline = false
+
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
