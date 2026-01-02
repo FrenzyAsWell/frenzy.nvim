@@ -23,6 +23,10 @@ require("mason-lspconfig").setup(
 			"rust_analyzer",
 		--
 			"pyright",
+		--
+			'nil',
+		--	
+			'texlab'
 		}
 	}
 })
@@ -52,6 +56,7 @@ local custom_attach = function(client)
 	map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 end
 
+require("lspconfig").texlab.setup { capabilities = capabilities, }
 require("lspconfig").lua_ls.setup {	capabilities = capabilities, }
 require("lspconfig").dockerls.setup { capabilities = capabilities, }
 require("lspconfig").clangd.setup { capabilities = capabilities, }
@@ -61,4 +66,4 @@ require("lspconfig").biome.setup { capabilities = capabilities, }
 require("lspconfig").jsonls.setup { capabilities = capabilities, }
 require("lspconfig").pyright.setup { capabilities = capabilities, }
 require("lspconfig").bashls.setup { capabilities = capabilities, }
-
+require("lspconfig").nil_ls.setup { capabilities = capabilities, }
