@@ -1,16 +1,39 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', "<C-o>", "<Cmd>Oil --float<CR>", opts)
+map('i', "<C-f>", "<Cmd>Oil --float<CR>", opts)
+
 require("oil").setup({
-  -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-  -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
-  default_file_explorer = true,
-  -- Id is automatically added at the beginning, and name at the end
-  -- See :help oil-columns
+  keymaps = {
+    ["g?"] = "actions.show_help",
+    ["<CR>"] = "actions.select",
+    ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+    ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+    ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+    ["<C-p>"] = "actions.preview",
+    ["<C-c>"] = "actions.close",
+    ["<C-l>"] = "actions.refresh",
+    ["-"] = "actions.parent",
+    ["_"] = "actions.open_cwd",
+    ["`"] = "actions.cd",
+    ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
+    ["gs"] = "actions.change_sort",
+    ["gx"] = "actions.open_external",
+    ["g."] = "actions.toggle_hidden",
+    ["g\\"] = "actions.toggle_trash",
+  },
+
+  default_file_explorer = false,
   columns = {
     "icon",
-    -- "permissions",
-    -- "size",
-    -- "mtime",
+	--[[
+    "permissions",
+    "size",
+    "mtime"
+	]]
   },
-  -- Buffer-local options to use for oil buffers
+
   buf_options = {
     buflisted = false,
     bufhidden = "hide",
@@ -55,24 +78,6 @@ require("oil").setup({
   -- it will use the mapping at require("oil.actions").<name>
   -- Set to `false` to remove a keymap
   -- See :help oil-actions for a list of all available actions
-  keymaps = {
-    ["g?"] = "actions.show_help",
-    ["<CR>"] = "actions.select",
-    ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-    ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
-    ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
-    ["<C-p>"] = "actions.preview",
-    ["<C-c>"] = "actions.close",
-    ["<C-l>"] = "actions.refresh",
-    ["-"] = "actions.parent",
-    ["_"] = "actions.open_cwd",
-    ["`"] = "actions.cd",
-    ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
-    ["gs"] = "actions.change_sort",
-    ["gx"] = "actions.open_external",
-    ["g."] = "actions.toggle_hidden",
-    ["g\\"] = "actions.toggle_trash",
-  },
   -- Set to false to disable all of the above keymaps
   use_default_keymaps = true,
   view_options = {
@@ -113,15 +118,14 @@ require("oil").setup({
       return false
     end,
   },
-  -- Configuration for the floating window in oil.open_float
+
   float = {
-    -- Padding around the floating window
-    padding = 2,
+    padding = 0,
     max_width = 0,
     max_height = 0,
     border = "rounded",
     win_options = {
-      winblend = 0,
+      winblend = 20,
     },
     -- preview_split: Split direction: "auto", "left", "right", "above", "below".
     preview_split = "auto",
