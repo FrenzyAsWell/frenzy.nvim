@@ -143,7 +143,7 @@ require("lazy").setup {
 				"williamboman/mason-lspconfig.nvim",
 				{
 					"neovim/nvim-lspconfig",
-					config = function()	require("plugin_config.lsp_config") end,
+					-- config = function()	require("plugin_config.lsp_config") end,
 				},
 				{
 					"mfussenegger/nvim-dap",
