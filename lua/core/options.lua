@@ -1,5 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+
+local enable_workspace = false
  
 vim.g.mapleader = ","
 vim.g.loaded_netrw = 1
@@ -19,6 +21,10 @@ vim.opt.tabstop = 4
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
+		if enable_workspace ~= true then
+			return;
+		end
+
 		local iwinMainID = vim.api.nvim_get_current_win()
 
 		pcall(vim.cmd, "NvimTreeOpen")
