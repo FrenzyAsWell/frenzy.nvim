@@ -6,6 +6,8 @@ local enable_workspace = false
 vim.g.mapleader = ","
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true
 vim.g.terminal_emulator='tmux'
 
 vim.opt.relativenumber = true

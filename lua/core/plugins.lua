@@ -85,7 +85,8 @@ require("lazy").setup {
 		},
 
 		{
-			"RRethy/vim-hexokinase",
+			"norcalli/nvim-colorizer.lua",
+			config = function() require("plugin_config.nvim-colorizer") end,
 		},
 
 		{
