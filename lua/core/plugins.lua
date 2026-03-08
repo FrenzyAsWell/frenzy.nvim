@@ -34,6 +34,28 @@ require("lazy").setup {
 		},
 
 		{
+			"windwp/nvim-ts-autotag",
+			enabled = true,
+
+			lazy = false,
+			build = ":TSUpdate",
+			ft = {
+				'html'
+			},
+
+			config = function() require('plugin_config.nvim-ts-autotag') end,
+
+			dependencies = {
+				{
+					"nvim-treesitter/nvim-treesitter",
+					lazy = false,
+
+					config = function() require('plugin_config.nvim-treesitter') end,
+				}
+			}
+		},
+
+		{
 			"lervag/vimtex",
 			lazy = false,
 
