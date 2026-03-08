@@ -81,7 +81,7 @@ require("lazy").setup {
 
 		{
 			"hedyhli/outline.nvim",
-			config = function() require("outline").setup {} end,
+			config = function() require("plugin_config.outline") end,
 		},
 
 		{
