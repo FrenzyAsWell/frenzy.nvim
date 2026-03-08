@@ -27,10 +27,22 @@ require("lazy").setup {
 		"folke/tokyonight.nvim",
 
 		-- ### --
+		
+		{
+			"nvzone/typr",
+			dependencies = {
+				"nvzone/volt",
+			},
+
+			cmd = { "Typr", "TyprStats" },
+		},
+		
 		{
 			'windwp/nvim-autopairs',
 			event = "InsertEnter",
-			config = true
+			config = true,
+
+			config = function() require('plugin_config.nvim-autopairs') end,
 		},
 
 		{
