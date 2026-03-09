@@ -31,17 +31,6 @@ require("lazy").setup {
 		"folke/tokyonight.nvim",
 
 		-- ### --
-		{
-			"iamcco/markdown-preview.nvim",
-			enabled = false,
-
-			ft = { "markdown" },
-			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-			build = function(plugin) vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install") end,
-			opts = {
-				mkdp_filetypes = { "markdown" },
-			},
-		},
 
 		{
 			'stevearc/oil.nvim',
