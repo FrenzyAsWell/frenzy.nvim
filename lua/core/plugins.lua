@@ -29,32 +29,5 @@ require("lazy").setup {
 		"savq/melange-nvim",
 		"sainnhe/everforest",
 		"folke/tokyonight.nvim",
-
-		-- ### --
-
-		{
-			"williamboman/mason.nvim",
-			dependencies = {
-				"williamboman/mason-lspconfig.nvim",
-				{
-					"neovim/nvim-lspconfig",
-					-- config = function()	require("plugin_config.lsp_config") end,
-				},
-				{
-					"mfussenegger/nvim-dap",
-					dependencies = {
-						"jay-babu/mason-nvim-dap.nvim",
-							{
-								"rcarriga/nvim-dap-ui",
-								dependencies = {
-									"nvim-neotest/nvim-nio"
-								},
-							},
-					},
-
-					config = function() require("plugin_config.dap_config") end,
-				},
-			},
-		},
 	},
 }
