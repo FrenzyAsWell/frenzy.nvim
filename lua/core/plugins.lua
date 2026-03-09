@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
 	spec = {
-		{ dir = vim.fn.stdpath("config") .. "/lua/plugins" },
+		{ dir = vim.fn.stdpath("config") .. "/lua", import = "plugins" },
 
 		-- "junegunn/fzf.vim",
 		-- "junegunn/fzf",
@@ -31,16 +31,7 @@ require("lazy").setup {
 		"folke/tokyonight.nvim",
 
 		-- ### --
-		
-		{
-			"nvzone/typr",
-			dependencies = {
-				"nvzone/volt",
-			},
-
-			cmd = { "Typr", "TyprStats" },
-		},
-		
+	
 		{
 			'windwp/nvim-autopairs',
 			event = "InsertEnter",
