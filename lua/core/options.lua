@@ -40,8 +40,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 --###--
 
-vim.keymap.set('n', '<C-e>e', '[[<cmd>HexokinaseToggle<cr>]]', opts)
-
 map('n', "<A-k>", "<cmd>lua vim.opt.cursorcolumn=not vim.opt.cursorcolumn._value<cr>", opts)
 map('n', "<A-j>", "<cmd>lua vim.opt.cursorline=not vim.opt.cursorline._value<cr>", opts)
 
