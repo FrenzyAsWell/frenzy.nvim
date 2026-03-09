@@ -91,13 +91,16 @@ require("lazy").setup {
 
 		{
 			"OXY2DEV/markview.nvim",
-			dependencies = {
-				"saghen/blink.cmp",
-			},
-
 			enabled = true,
 			lazy = false,
+			build = "TSUpdate",
+
 			config = function() require("plugin_config.markview") end,
+
+			dependencies = {
+				"nvim-mini/mini.icons",
+				"saghen/blink.cmp",
+			},
 		},
 
 		{

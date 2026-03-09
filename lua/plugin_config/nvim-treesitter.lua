@@ -2,5 +2,9 @@ require('nvim-treesitter').install {
 	'html',
 	'xml',
 
-	'markdown'
+	'markdown',
+	'html',
+	'latex',
+	'typst',
+	'yaml',
 }
