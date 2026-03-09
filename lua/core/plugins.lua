@@ -13,8 +13,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.fn.stdpath("config")
+
 require("lazy").setup {
 	spec = {
+		{ dir = vim.fn.stdpath("config") .. "/lua/plugins" },
+
 		-- "junegunn/fzf.vim",
 		-- "junegunn/fzf",
 
