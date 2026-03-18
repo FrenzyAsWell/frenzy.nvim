@@ -20,7 +20,7 @@ return {
 				--
 					"biome",
 				--
-				--	"emmylua_ls",
+					"lua_ls",
 				--
 					"cmake",
 				--
@@ -64,6 +64,7 @@ return {
 		--vim.lsp.config('clangd', { capabilities = capabilities })
 		vim.lsp.config('*', { capabilities = capabilities })
 
+		vim.lsp.enable('lua_ls')
 		vim.lsp.enable('clangd')
 		vim.lsp.enable('texlab')
 		vim.lsp.enable('dockerls')
