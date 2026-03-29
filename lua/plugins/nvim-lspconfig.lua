@@ -9,6 +9,8 @@ return {
 			opts = {
 				ensure_installed =
 				{
+					"termux_language_server",
+				--
 					"codelldb",
 					"clang-format",
 					"clangd",
@@ -75,5 +77,6 @@ return {
 		vim.lsp.enable('pyright')
 		vim.lsp.enable('bashls')
 		vim.lsp.enable('nil_ls')
+		vim.lsp.enable('termux_language_server')
 	end,
 }
