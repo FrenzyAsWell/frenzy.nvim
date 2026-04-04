@@ -31,3 +31,6 @@ require("lazy").setup {
 		"folke/tokyonight.nvim",
 	},
 }
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<A-L>', '<Cmd>Lazy<CR>', opts)
