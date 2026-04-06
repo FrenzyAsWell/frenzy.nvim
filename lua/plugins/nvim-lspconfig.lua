@@ -32,7 +32,9 @@ return {
 				--
 					'nil',
 				--	
-					'texlab'
+					'texlab',
+				--
+					'qmlls'
 				}
 			}
 		})
@@ -77,6 +79,7 @@ return {
 		vim.lsp.enable('pyright')
 		vim.lsp.enable('bashls')
 		vim.lsp.enable('nil_ls')
+		vim.lsp.enable('qmlls')
 		vim.lsp.enable('termux_language_server')
 	end,
 }
