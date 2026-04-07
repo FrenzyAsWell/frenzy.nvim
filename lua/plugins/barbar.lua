@@ -12,11 +12,11 @@ return {
 
 		require("barbar").setup
 		{
-			vim.keymap.set('n', 'zj', '<Cmd>BufferPrevious<CR>', opts),
-			vim.keymap.set('n', 'zk', '<Cmd>BufferNext<CR>', opts),
+			vim.keymap.set('n', '<C-z>j', '<Cmd>BufferPrevious<CR>', opts),
+			vim.keymap.set('n', '<C-z>k', '<Cmd>BufferNext<CR>', opts),
 			vim.keymap.set('i', "<C-,>", "<Cmd>BufferPrevious<Cr>", opts),
 			vim.keymap.set('i', "<C-.>", "<Cmd>BufferNext<Cr>", opts),
-			vim.keymap.set('n', 'z,', '<Cmd>BufferMovePrevious<CR>', opts),
+			vim.keymap.set('n', '<C-z>,', '<Cmd>BufferMovePrevious<CR>', opts),
 
 			vim.keymap.set('n', 'z1', '<Cmd>BufferGoto 1<CR>', opts),
 			vim.keymap.set('n', 'z2', '<Cmd>BufferGoto 2<CR>', opts),
@@ -28,8 +28,8 @@ return {
 			vim.keymap.set('n', 'z8', '<Cmd>BufferGoto 8<CR>', opts),
 			vim.keymap.set('n', 'z9', '<Cmd>BufferGoto 9<CR>', opts),
 			vim.keymap.set('n', 'z0', '<Cmd>BufferLast<CR>', opts),
-			vim.keymap.set('n', 'zp', '<Cmd>BufferPin<CR>', opts),
-			vim.keymap.set('n', 'zc', '<Cmd>BufferClose<CR>', opts),
+			vim.keymap.set('n', '<C-z>p', '<Cmd>BufferPin<CR>', opts),
+			vim.keymap.set('n', '<C-z>c', '<Cmd>BufferClose<CR>', opts),
 			vim.keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts),
 
 			vim.keymap.set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts),
