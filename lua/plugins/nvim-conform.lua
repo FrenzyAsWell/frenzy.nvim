@@ -6,11 +6,16 @@ return {
 		require("conform").setup {
 			formatters_by_ft = {
 				latex = { "latexindent" },
+				json = { "jq" }
 			},
 
 			formatters = {
 				latexindent = {
 					command = "latexindent",
+				},
+
+				jq = {
+					command = "/usr/bin/jq"
 				}
 			},
 		}
