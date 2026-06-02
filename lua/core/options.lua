@@ -38,6 +38,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+vim.api.nvim_create_user_command('Typr', function (opts)
+	require('nvim-autopairs').disable()
+	vim.cmd('Typr' .. opts.args)
+end, {
+	force = true,
+	nargs = '*'
+})
+
 --###--
 
 map('n', "<A-k>", "<cmd>lua vim.opt.cursorcolumn=not vim.opt.cursorcolumn._value<cr>", opts)
