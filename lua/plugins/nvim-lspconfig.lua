@@ -34,7 +34,9 @@ return {
 				--	
 					'texlab',
 				--
-					'qmlls'
+					'qmlls',
+				--
+					'jdtls'
 				}
 			}
 		})
@@ -81,5 +83,6 @@ return {
 		vim.lsp.enable('nil_ls')
 		vim.lsp.enable('qmlls')
 		vim.lsp.enable('termux_language_server')
+		vim.lsp.enable('jdtls')
 	end,
 }
